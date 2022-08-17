@@ -1,143 +1,189 @@
 
 $(function(){
-   
-    $('.menubtn').on('click',function(){
-        if($('.menubar').hasClass("open")==true){
-            $('.menubar').stop().animate({
-                left:'-100%'
-            },1000,'easeInOutQuint');
-            $('.menubar').removeClass('open');
-        }else{
-            $('.menubar').stop().animate({
-                left:0
-            },1000,'easeInOutQuint');
-            $('.menubar').addClass('open');
-        }
-    });
-
-    let cont1h =$('.cont1').offset().top;
-    function scrollfadeout(){
-      $('.cont1_tit').stop().animate({
-        color:'#fff'
-      },1900,'easeInQuart',1000);
-      $('.cont1_bg_white').stop().fadeOut(1900,'easeInQuart',1000);
-      $('.cont1_subtit').stop().animate({
-        color:'#fff',
-        textShadow :'text-shadow: 5px 5px 5px ##fff;'
-      },1900,'easeInQuart',1000);
-      $('.cont1_subtxt').stop().animate({
-        color:'#eee'
-      },1900,'easeInQuart',1000);
-      $('.cont1_txt').stop().animate({
-        color:'#ddd'
-      },1900,'easeInQuart',1000);
-    }
-    $(window).on('scroll',function(){
-      let nowH = $(window).scrollTop();
-      if(nowH + 200 >= cont1h){
-        scrollfadeout();/* 
-        setTimeout(moon,2000) */
-      }
-      
-
-    });
+    var num = 0;
+    var connum =  $('.cont.on progress').val();
+    $('.tabtit p').text($('.cont progress').val()+'%');
     
-    /* function moon(){
-      let moonbox = $('.moonbox');
-      let moons = $('.moonbox svg');
-      let fullmoon = $('.fullmoon');
-      fullmoon.css({
-        filter: 'invert(100%)'
-      },1000)
-      moons.fadeIn(1000)
-      for(let i=0 ; i++){
+    function counton(){
+        sec = setInterval(count,15);
+        }
+    
+    function count(){
+        num ++;
+        if(num>connum){
+            clearInterval(sec);
+            
+        }else{
+            if(num<10){
+                $('.tabtit p').text('0'+num+'%');
+            }else{
+                $('.tabtit p').text(num+'%');
+            }
+        }
+    
+    } 
 
-      }
-   */
+    
+//탭버튼 클릭하면 progress 게이지 차오르고 숫자 상승
+    $('.tab_button .tab').on('click',function() {
+        var onTab = $(this).attr('data-tab');
+        $('.cont').removeClass('on');
+        $(this).addClass('on').siblings().removeClass('on');
+        $('#' + onTab).addClass('on');
 
-    let cont1_ing=0;
-    function imgchage(){
-      
+        $(this).children('span').stop().animate({
+            width:'100%'
+        })
+        $(this).siblings().children('span').css({width:0})
 
-      if(cont1_ing<= 3)  {
-        $('.cont1_bg_img div').eq(cont1_ing).show().animate({
-        backgroundPosition: '10%'
-      },5000,'easeInSine').siblings().hide();
-      cont1_ing++;
-      $('.cont1_bg_img div').eq(2).css({
-          backgroundPosition: '0%'
+        counton();
+        connum =  $('.cont.on progress').val();
+        num = 0 ;
+
+        let prog = $('.cont.on progress').val();
+        let defaultV = 0;
+            function tag(){ 
+                if(defaultV<prog){
+                   defaultV++;
+                    $('.cont.on progress').val(defaultV);  
+                }else{
+                    clearInterval(tag);
+                }
+
+            }
+            setInterval(tag,15);
+        })
+
+    
+        $('.mm_slide').slick({             
+            slidesToShow : 1,// 화면에 보여지는 슬라이드 개수
+            slidesToScroll: 1, 
+            arrows : false, 
+            dots: true, 
+            infinite : true, 
+            autoplay:true,
+            autoplaySpeed:3000,
+            appendDots:$('.port04_dots')
         });
-      }else{
         
-        $('.cont1_bg_img div').eq(0).css({
-          backgroundPosition: '20%'
-        });
-        $('.cont1_bg_img div').eq(1).css({
-          backgroundPosition: '0%'
-        });
+
+        /* var myModal = new jBox('Modal', {
+            content: 'This is my jBox'
+          });
+           
+          myModal.open(); */
+          /* 팝업창 */
+
+          $('.probtn a').on('click',function(){
+            event.preventDefault(); 
+          });
+          
         
-        cont1_ing=0;
-      }
-      
-    }
-    setInterval(imgchage, 5000);
+          new jBox('Modal', {
+            attach: '.btn01',
+            width: 400,
+            height:300,
+            title: '성격단어1',
+            position: {x: 1600, y: 100},
+            target: '#detail_about',
+            outside: 'x',
+            overlay: false,
+            content: '<img src="img/logo_color.png"> 인냥',
+            draggable: 'title',
+            repositionOnOpen: false,
+            repositionOnContent: false
+          });
 
-    $('.cont2_prod_name').on('click',function(){
-        $(this).parents().addClass('on').siblings().removeClass('on');
+          new jBox('Modal', {
+            attach: '.btn02',
+            width: 400,
+            height:200,
+            footer:'하하',
+            position: {x: 1400, y: 300},
+            title: '성격단어2',
+            overlay: false,
+            content: $('.modal01'),
+            draggable: 'title',
+            repositionOnOpen: false,
+            repositionOnContent: false,
+            
+          });
+          new jBox('Modal', {
+            attach: '.btn03',
+            width: 400,
+            height:200,
+            footer:'하하',
+            position: {x: 1550, y: 500},
+            title: '성격단어2',
+            overlay: false,
+            content: $('.modal01'),
+            draggable: 'title',
+            repositionOnOpen: false,
+            repositionOnContent: false,
+            
+          });
+          
 
-        let num = $('.cont2_prod_name').index($(this));
-        console.log(num)
-       
-        $('.selcet_area .cont2_prodtit:eq(' + num + ')').addClass("on");
-        $('.prod_area .cont2_prod:eq(' + num + ')').addClass("on").siblings().removeClass('on');
-    });
+          $('.pro_main .btn01 a').on('click',function(){
+            character01.open();
+          })
+          
+                    
+            $('.port_slide').slick({             
+                slidesToShow : 1,
+                slidesToScroll: 1, 
+                arrows : false, 
+                dots: true, 
+                infinite : true, 
+                autoplay:true,
+                autoplaySpeed:5000,
+                draggable: false,
+                pauseOnHover: false
+            });
 
-    let idx = 0;
-    let id = 0;
-    setInterval(time01, 3000);
-  
+            $('.play').on('click',function(){
+		        $('.port_slide').slick('slickPlay')
+            });
+            $('.pause').on('click',function(){
+		        $('.port_slide').slick('slickPause')
+            })
 
-    function time01(){
-      let box = $('.cont2_prodtit');
-      box.removeClass('on');
-      box.eq(idx).addClass('on');
-      idx++;
-      if(idx >= box.length) idx= 0;
-    }
-    setInterval(time02, 3000);
-    function time02(){
-      let box1 = $('.cont2_prod');
-      box1.removeClass('on');
-      box1.eq(id).addClass('on');
-      id++;
-      if(id >= box1.length) id= 0;
-    }
-
-    $('.cont3_slidebox').slick({
-        slidesToShow : 1,// 화면에 보여지는 슬라이드 개수
-        slidesToScroll: 1, //스크롤시 넘어갈 슬라이드 개수
-        arrows : true, //화살표 사용여부
-        dots: false, //pager
-        
-    });
-
-    $('.cont4_slidebox').slick({             
-        slidesToShow : 3,// 화면에 보여지는 슬라이드 개수
-        slidesToScroll: 1, //스크롤시 넘어갈 슬라이드 개수
-        arrows : false, //화살표 사용여부
-        dots: true, //pager
-        infinite : true, 
-        autoplay:true,
-    });
-
-    $('.slick-dots').slick({
-        slidesToShow : 5,
-    });
-
-
-
-
-
-
+            /* 슬라이드시 색상 변경 */
+            $('.port_slide').on('afterChange',function(currentSlide,event,slick){
+                if($('.port_slide').slick('slickCurrentSlide')%2==0){
+                    console.log('clear')
+                    $('#portfolio .gnb li').css({
+                        color:'#011722'
+                    });
+                    $('.header .sub_tit').css({
+                        color:'#00334c'
+                    });
+                    $('#portfolio .bot_logo p').css({
+                        color:'#004667'
+                    });
+                    $('#portfolio .bot_logo span').css({
+                        borderColor:'#004667'
+                    });
+                    $('#portfolio .bot_logo div').css({
+                        backgroundImage:'url(../img/logo_color.png)'
+                    });
+                }else if($('.port_slide').slick('slickCurrentSlide')%2 == 1){
+                    $('#portfolio .gnb li').css({
+                        color:'#f1f4f6'
+                    });
+                    $('.header .sub_tit').css({
+                        color:'#97a5ae'
+                    });
+                    $('#portfolio .bot_logo p').css({
+                        color:'#f1f4f6'
+                    });
+                    $('#portfolio .bot_logo span').css({
+                        borderColor:'#f1f4f6'
+                    });
+                    $('#portfolio .bot_logo div').css({
+                        backgroundImage:'url(../img/logo_white.png)'
+                    });
+                }
+            });
 
 })
