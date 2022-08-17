@@ -116,7 +116,7 @@ $(function(){
             position: {x: 1550, y: 500},
             title: '성격단어2',
             overlay: false,
-            content: $('.modal01'),
+            content:'',
             draggable: 'title',
             repositionOnOpen: false,
             repositionOnContent: false,
@@ -186,4 +186,40 @@ $(function(){
                 }
             });
 
+            //물방울 gsap
+
+          
+
+            let timeLine = new TimelineMax({ paused:true });
+                timeLine
+                .to(".ani01",1,{ rotation:30,x:100,y:-40,})
+                .to(".ani02",1,{rotation:30,x:100,y:-50},"<")
+                .to(".drop",{scale:1.2},"<")
+                .to(".ani03",1,{rotation:-30,x:-100,y:-40,},"<-0.1")
+                .to(".ani04",1,{rotation:-30,x:-60,y:-40},"<0.2")
+                .to(".drop",{scale:0.7},"<")
+                .to(".drop",{opacity:0},"<")
+
+            
+                $('.outro_box h1').on('mouseenter',function(){
+                    $('.drop').css({display:"block"});
+                    timeLine.play();
+                    
+                });
+                $('.outro_box h1').on('mouseleave',function(){
+                    $('.drop').css({display:"none"});
+                    timeLine.reverse();
+                    
+                })
+
+                $('.outro_box h1 ul').slick({             
+                    slidesToShow : 1,
+                    slidesToScroll: 1, 
+                    arrows : false, 
+                    dots: false, 
+                    infinite : true, 
+                    autoplay:true,
+                    autoplaySpeed:2000,
+                    vertical : true,	
+                });
 })

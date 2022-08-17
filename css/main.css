@@ -1187,19 +1187,98 @@ background-blend-mode: lighten;}
     display: flex;
     flex-wrap: wrap;
     width: 1200px;
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
 }
 #artwork .artwork_imgbox .artwork_img{
     display: block;
     width: 224px; height: 224px;
-    margin-right: 21px;
+    margin-right: 20px;
 }
-#artwork .artwork_imgbox .artwork_img.blank{
+#artwork .artwork_imgbox .blank{
     margin-right: 0px;
 }
 #artwork .artwork_imgbox .artwork_img img{
     width: 100%; height: auto;
+    
 }
 
 /* outro */
 
-#outro{min-width: 1920px;min-height: 1080px;position: relative;}
+#outro{width: 100vw; min-width: 1920px;min-height: 1080px;position: relative;background-color: #f1f4f6;}
+#outro .outro_box{
+    position: absolute;
+    top: 45%;left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+#outro .outro_box img{
+    width: 183px; height: auto;
+}
+#outro .outro_box h1{
+    font-size: 72px;font-weight: 900;margin-bottom: 10px;
+    color: #00334c;
+    position: relative;
+}
+#outro .outro_box h1 span{
+    display: inline-block;
+    width: 140px;
+}
+#outro .outro_box h1 ul{
+    position: absolute;
+    left: 38%; top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;height: 110px;
+}
+#outro .outro_box h1 ul li{
+    width: 150px; height: 100px;
+    padding: 10px 0;
+    color: #1461a0;
+}
+#outro .outro_box h1 ul li.outro_slide_img{
+    background: url(../img/icon_wave_color.svg)no-repeat center center/110px auto;
+}
+#outro .outro_box p{
+    color: #49778f;
+    font-weight: 300;
+}
+#outro .outro_box p span{
+    font-weight: 600;
+    color: #00334c;
+    font-size: 18px;
+}
+#outro .outro_box a{
+    display: block;
+    width: 70px; height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #aaa;
+    position: absolute;
+    bottom: -350px; left: 50%;
+    color: #3e3e3e;
+    transform: translateX(-50%);
+}
+#outro .outro_ani .drop{
+    position: absolute;
+    width: 30px; height: auto;
+    display: none;
+}
+#outro .outro_ani .ani01{
+    width: 30px; height: auto;
+    top: 50%;left: 54%;
+    transform: rotate(-10deg);
+}
+#outro .outro_ani .ani02{
+    width: 24px; height: auto;
+    top: 50%;left: 58%;
+}
+#outro .outro_ani .ani03{
+    width: 30px; height: auto;
+    top: 49%;left: 40%;
+    transform: rotate(-20deg);
+}
+#outro .outro_ani .ani04{
+    width: 50px; height: auto;
+    top: 48%;left: 43%;
+}

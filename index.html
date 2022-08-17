@@ -17,6 +17,8 @@
     <script src="js/LC-Lightbox-LITE-master/lib/AlloyFinger/alloy_finger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/EasePack.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/jBox.all.min.js"></script>
     <script src="js/main.js"></script>
@@ -632,17 +634,27 @@
                     <a href="/img/portfolio_bg05.gif" title="My title 1" data-jbox-image="gallery1" class="artwork_img"><img src="/img/portfolio_bg05.gif" alt=""></a>
                     <a href="/img/portfolio_bg05.gif" title="My title 1" data-jbox-image="gallery1" class="artwork_img"><img src="/img/portfolio_bg05.gif" alt=""></a>
                     <a href="/img/portfolio_bg05.gif" title="My title 1" data-jbox-image="gallery1" class="artwork_img blank"><img src="/img/portfolio_bg05.gif" alt=""></a>
-                    <a href="/img/portfolio_bg05.gif" title="My title 1" data-jbox-image="gallery1" class="artwork_img"><img src="/img/portfolio_bg05.gif" alt=""></a>
-
-                    
-                </div>
+                </div><!-- artwork_imgbox -->
             </div><!-- artwork_in -->
         </div><!-- artwork -->
         <div id="outro">
-            <img src="img/logo_color.png">
-            <h1>같이 수영하실래요?</h1>
-            <p>phone number +82 10 7353-2198</p>
-            <p>email address 0aaa123@gmail.com</p>
+            <div class="outro_box">
+                <img src="img/logo_color.png">
+                <h1 class="pretend">같이 <ul>
+                    <li>수영</li>
+                    <li>🏊‍♀️</li>
+                    <li class="outro_slide_img"></li>
+                </ul><span></span>하실래요?</h1>
+                <p class="pretend"><span>phone number</span> +82 10 7353-2198</p>
+                <p class="pretend"><span>email address</span> 0aaa123@gmail.com</p>
+                <a href="#intro" class="pretend">위로가기</a>
+            </div><!-- outro_box -->
+            <div class="outro_ani">
+                <img class="ani01 drop" src="img/drop1.svg" alt="">
+                <img class="ani02 drop" src="img/drop3.svg" alt="">
+                <img class="ani03 drop" src="img/drop2.svg" alt="">
+                <img class="ani04 drop" src="img/drop4.svg" alt="">
+            </div>
         </div><!-- outro -->
     </div><!-- 끝입니다 -->
     
