@@ -222,4 +222,27 @@ $(function(){
                     autoplaySpeed:2000,
                     vertical : true,	
                 });
+
+                new jBox('Image');
+
+                $('.device_btn a').on('click',function(){
+                    event.preventDefault(); 
+                  });
+
+                  let mobileBtn = $('.mobile_btn');
+                  let pcBtn = $('.pc_btn');
+                  let tabletBtn = $('.tablet_btn');
+
+                $('.device_btn a').on('click',function(){
+                    $(this).addClass('on').siblings().removeClass('on');
+                    
+                    if($('.tablet_btn').hasClass('on')){
+                        $('.tabletImg').addClass('on').siblings().removeClass('on');
+                    }
+                    else if($('.mobile_btn').hasClass('on')){
+                        $('.mobileImg').addClass('on').siblings().removeClass('on');
+                    }else if($('.pc_btn').hasClass('on')){
+                        $('.pcImg').addClass('on').siblings().removeClass('on');
+                    }
+                })
 })

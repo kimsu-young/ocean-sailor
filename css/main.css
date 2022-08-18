@@ -858,7 +858,7 @@ border-radius: 50%; background-color: #00334c; margin-right: 10px;}
 }
 .slide .slide_in .slideimg .device_btn .mobile_btn.on{
     background-color: #004667;
-    background-image: url(../img/icon_mobile_w.png);
+    background-image: url(../img/icon_phone_w.png);
 }
 .slide .slide_in .slideimg .device_btn .tablet_btn.on{
     background-color: #004667;
@@ -878,11 +878,36 @@ border-radius: 50%; background-color: #00334c; margin-right: 10px;}
     background-size: 70%;
 }
   
-.slide.port01 .slide_in .display_img .img_frame:hover .tablet_img,
+.slide.port01 .slide_in .display_img .img_frame:hover .tablet_img{
+    transform: translateY(-52.2%);
+}
 .slide.port01 .slide_in .display_img .img_frame:hover .mobile_img{
-    transform: translateY(-54%);
+    transform: translateY(-54.1%);
+}/* 포트폴리오1 */
+
+.slide.port02 .slide_in .slideimg .display_img .img_frame .pc_img{
+    transition: 5.5s all linear;
+}
+.slide.port02 .slide_in .slideimg .display_img .img_frame .tablet_img{
+    transition: 8s all linear;
+}
+.slide.port02 .slide_in .slideimg .display_img .img_frame .mobile_img{
+    transition: 10s all linear;
 }
 
+.slide.port02 .slide_in .display_img .img_frame:hover .pc_img{
+    transform: translateY(-76.3%);
+}
+.slide.port02 .slide_in .display_img .img_frame:hover .mobile_img{
+    transform: translateY(-94%);
+}
+.slide.port02 .slide_in .display_img .img_frame:hover .tablet_img{
+    transform: translateY(-86.6%);
+}
+/* 포트폴리오2 */
+.slide.port03 .slide_in .display_img .img_frame:hover img{
+    transform: translateY(-41.7%);
+}/* 포트폴리오3 */
 
 
   /* 블루컬러 포트폴리오 css */
@@ -1266,19 +1291,19 @@ background-blend-mode: lighten;}
 }
 #outro .outro_ani .ani01{
     width: 30px; height: auto;
-    top: 50%;left: 54%;
+    top: 45%;left: 54%;
     transform: rotate(-10deg);
 }
 #outro .outro_ani .ani02{
     width: 24px; height: auto;
-    top: 50%;left: 58%;
+    top: 45%;left: 58%;
 }
 #outro .outro_ani .ani03{
     width: 30px; height: auto;
-    top: 49%;left: 40%;
+    top: 45%;left: 40%;
     transform: rotate(-20deg);
 }
 #outro .outro_ani .ani04{
     width: 50px; height: auto;
-    top: 48%;left: 43%;
+    top: 42%;left: 43%;
 }
