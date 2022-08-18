@@ -1,4 +1,3 @@
-
 $(function(){
     var num = 0;
     var connum =  $('.cont.on progress').val();
