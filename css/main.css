@@ -1233,7 +1233,7 @@ background-blend-mode: lighten;}
 
 /* outro */
 
-#outro{width: 100vw; min-width: 1920px;min-height: 1080px;position: relative;background-color: red;}
+#outro{width: 100vw; min-width: 1920px;min-height: 1080px;position: relative;background-color: #f1f4f6;}
 #outro .outro_box{
     position: absolute;
     top: 45%;left: 50%;
